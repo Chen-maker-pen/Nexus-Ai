@@ -1,0 +1,453 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Outfit:wght@100..900&family=JetBrains+Mono:wght@100..800&family=Space+Grotesk:wght@300..700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Outfit", "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --color-luxury-gold: #78A4CB; /* Primary brand Steel Blue */
+  --color-luxury-gold-hover: #5D8EB7; /* Richer Steel Blue */
+  --color-luxury-beige: #BCE3EB; /* Soft Sky Blue-Teal (2nd Layer) */
+  --color-luxury-white: #FFFFFF; /* Pure clean white */
+  --color-luxury-silver: #9AC1D9; /* Steel blue (3rd Layer) */
+  --color-luxury-gray: #334155; /* Crisp Slate Gray for high text legibility */
+  --color-luxury-bronze: #78A4CB; /* Brand Steel Blue */
+  --color-luxury-mint: #FDF4C5; /* Soft Warm Cream Yellow (Top Layer) */
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  width: 100%;
+  background-color: #F3F6FA; /* Friendly clean light background */
+  font-family: var(--font-sans);
+  font-size: 15.5px; /* Boost global base scale by 10% for crisp readability */
+  line-height: 1.6;
+  color: #0F172A; /* Deep slate, very readable */
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Dynamic display text pairing setup */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+/* Maximize reading clarity for controls, forms, inputs, and buttons */
+input, select, textarea, button {
+  font-family: var(--font-sans);
+  font-size: 14.5px; /* Perfectly visible text size inside form elements */
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Custom luxury minimal scrollbar styling webkit-compliant */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(120, 164, 203, 0.15); /* Soft periwinkle steel scrollbar */
+  border-radius: 99px;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(120, 164, 203, 0.35); /* Elegant hover highlighted */
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+/* For Firefox compatibility */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(120, 164, 203, 0.15) transparent;
+}
+
+/* Optimized Hardware-Accelerated Custom Cursors */
+#custom-luxury-cursor-glow {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(120, 164, 203, 0.45);
+  background-color: rgba(120, 164, 203, 0.05);
+  mix-blend-mode: normal;
+  z-index: 9999;
+  will-change: transform;
+  transition: transform 0.08s cubic-bezier(0.23, 1, 0.32, 1), border-color 0.25s, background-color 0.25s, width 0.25s, height 0.25s, margin 0.25s;
+}
+#custom-luxury-cursor-glow.hovered {
+  width: 44px;
+  height: 44px;
+  margin: -6px 0 0 -6px;
+  border-color: rgba(120, 164, 203, 0.85);
+  background-color: rgba(120, 164, 203, 0.12);
+}
+
+#custom-luxury-cursor-dot {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #78A4CB;
+  z-index: 10000;
+  will-change: transform;
+  transition: transform 0.015s linear, opacity 0.2s, background-color 0.2s;
+}
+#custom-luxury-cursor-dot.hovered {
+  opacity: 0.5;
+  background-color: #1e293b;
+}
+
+#custom-luxury-cursor-blob {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background-color: rgba(120, 164, 203, 0.02);
+  filter: blur(110px);
+  z-index: 1;
+  will-change: transform;
+  transition: transform 0.25s cubic-bezier(0.1, 0.8, 0.2, 1);
+}
+
+/* ==========================================================================
+   COMPLETE LIGHT MODE THEME OVERRIDES FOR 100% READABILITY & HIGH CONTRAST
+   Refactored to map all cards, bars, and boxes to Pristine White and provide
+   exceptional semantic color matching: Soft Sage Green, Soft Crimson Red,
+   Soft Peach Amber, and Soft Steel Blue.
+   ========================================================================== */
+
+/* 1. Global Backgrounds (Body, Wrapper, Sections) */
+html, body, #root, 
+#landing-page-root, #auth-page-root, #dashboard-root, 
+.min-h-screen, .bg-black, .bg-zinc-950, .bg-neutral-950, .bg-slate-950,
+[class*="bg-[#07080"], [class*="bg-[#02020"], [class*="bg-[#00000"], [class*="bg-[#05050"], [class*="bg-[#0c0c0"], [class*="bg-neutral-950"] {
+  background-color: #F3F6FA !important;
+  background: #F3F6FA !important;
+  color: #0F172A !important;
+}
+
+/* 2. Overriding All Gradients with Soft Light Gradients */
+[class*="bg-gradient-to"] {
+  background-image: linear-gradient(135deg, #FFFFFF 0%, #F4F7FB 100%) !important;
+  background-color: #FFFFFF !important;
+}
+
+/* 3. Universal Card and Container Reset (Pristine White with Soft Pale Ice Blue Border) */
+.bg-zinc-900, .bg-neutral-900, .bg-slate-900, .bg-zinc-900\/80, .bg-neutral-900\/80, .bg-slate-900\/40,
+[class*="bg-zinc-900"], [class*="bg-neutral-900"], [class*="bg-slate-900"], 
+[class*="bg-[#0c0c"], [class*="bg-[#0909"], [class*="bg-[#0a0a"], [class*="bg-[#0b0b"], 
+[class*="bg-[#1212"], [class*="bg-[#1313"], [class*="bg-[#1818"], [class*="bg-[#1e1e"],
+[class*="bg-[#1a1a"], [class*="bg-[#1111"], [class*="bg-[#1414"], [class*="bg-[#1515"],
+.bg-black\/20, .bg-black\/30, .bg-black\/40, .bg-black\/50, .bg-black\/60, .bg-black\/80,
+.bg-white\/5, .bg-white\/10, .bg-white\/20, .bg-white\/\[0\.01\], .bg-white\/\[0\.02\], .bg-white\/\[0\.04\], .bg-white\/\[0\.05\],
+[class*="bg-white/"], [class*="bg-black/"], [class*="bg-neutral-900/"] {
+  background-color: #FFFFFF !important;
+  background: #FFFFFF !important;
+  color: #0F172A !important;
+  border: 1px solid rgba(188, 227, 235, 0.45) !important; /* Pale Ice Blue border accent */
+  box-shadow: 0 10px 30px -5px rgba(120, 164, 203, 0.08), 0 2px 12px rgba(0, 0, 0, 0.02) !important;
+  position: relative;
+}
+
+/* Premium Visual Design: Add left color-match border to major card components for cohesive styling */
+.bg-zinc-900, .bg-neutral-900, .bg-[#09090b]/80, [class*="bg-[#09090b]"], [class*="bg-zinc-900"] {
+  border-left: 4px solid #78A4CB !important; /* Elegant fourth-color Steel Blue accent bar */
+}
+
+/* 4. Navigation Headers & Subheaders (Master Glass Controls) */
+header.sticky, header {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-bottom: 1px solid #BCE3EB !important; /* Pale Ice Blue header divider */
+  box-shadow: 0 10px 25px -5px rgba(120, 164, 203, 0.08) !important;
+}
+
+header * {
+  color: #0F172A !important;
+}
+
+nav, [class*="bg-neutral-900/40"], [class*="bg-neutral-900/60"] {
+  background-color: #F1F5F9 !important;
+  border-color: #BCE3EB !important;
+}
+
+/* 5. Headings and High Contrast Text Color */
+.text-white, .text-zinc-100, .text-slate-100, .text-neutral-100, .text-gray-100,
+.text-zinc-200, .text-slate-200, .text-neutral-200, .text-gray-200,
+.text-zinc-300, .text-slate-300, .text-neutral-300, .text-gray-300,
+.text-luxury-white, h1, h2, h3, h4, h5, h6, strong, b,
+.font-bold, .font-extrabold, .font-semibold, .text-slate-100 *, .text-white * {
+  color: #0F172A !important;
+}
+
+/* Descriptive Texts, Paragraphs & Subtle Texts */
+.text-zinc-400, .text-slate-400, .text-neutral-400, .text-gray-400,
+.text-zinc-500, .text-slate-500, .text-neutral-500, .text-gray-500,
+.text-luxury-gray, p, span, li, label, .text-neutral-300 * {
+  color: #334155 !important;
+}
+
+/* 6. Form Inputs & Textareas (100% Visible & Legible) */
+input, textarea, select {
+  background-color: #FFFFFF !important;
+  background: #FFFFFF !important;
+  color: #0F172A !important;
+  border-color: #BCE3EB !important; /* Beautiful Pale Ice Blue inputs */
+}
+input::placeholder, textarea::placeholder {
+  color: #94A3B8 !important;
+}
+
+/* 7. Buttons (Prevent Invisible Transparent & White Outline Buttons) */
+button {
+  cursor: pointer;
+}
+
+/* Inactive nav/control items */
+button.text-slate-400, button.text-neutral-400, button.text-zinc-400,
+nav button:not(.bg-white):not(.text-black) {
+  color: #475569 !important;
+}
+button.text-slate-400:hover, button.text-neutral-400:hover, button.text-zinc-400:hover,
+nav button:not(.bg-white):not(.text-black):hover {
+  color: #0F172A !important;
+  background-color: rgba(120, 164, 203, 0.12) !important;
+}
+
+/* Transparent outline buttons on landing, auth, and other views */
+button.bg-transparent, button.border-white\/10, button.border-white\/5,
+[class*="border-white/10"], [class*="border-white/5"] {
+  background-color: #FFFFFF !important;
+  background: #FFFFFF !important;
+  color: #0F172A !important;
+  border-color: #BCE3EB !important; /* Pale Ice Blue boundary */
+  box-shadow: 0 1px 3px rgba(120, 164, 203, 0.08) !important;
+}
+
+button.bg-transparent:hover, button.border-white\/10:hover {
+  background-color: #F8FAFC !important;
+  border-color: #78A4CB !important;
+}
+
+/* Keep solid core action buttons with vibrant readable white text on Steel Blue */
+.bg-\[\#78A4CB\], .bg-luxury-gold, [class*="bg-[#78A4CB]"]:not([class*="selection:"]), 
+.bg-blue-500, .bg-indigo-500, .bg-emerald-500, .bg-teal-500, .bg-red-500 {
+  color: #FFFFFF !important;
+  background-color: #78A4CB !important;
+}
+
+.bg-\[\#78A4CB\] *, .bg-luxury-gold *, [class*="bg-[#78A4CB]"]:not([class*="selection:"]) * {
+  color: #FFFFFF !important;
+}
+
+/* ==========================================================================
+   8. PRISTINE, PROFESSIONAL COLOR MATCHED BADGES & METADATA OVERRIDES
+   Maps abstract classes to authentic, readable, high-contrast light colors.
+   ========================================================================== */
+
+/* SUCCESS STATE / COORDINATES / ACTIVE SYNC: Elegant Soft Mint Sage Green */
+.text-emerald-400, .text-emerald-500, .text-green-400, .text-green-500,
+.bg-emerald-950\/30, .bg-emerald-500\/20, .bg-emerald-950, .bg-green-950\/30, .bg-green-500\/20,
+.text-emerald-400 *, .text-emerald-500 *, .text-green-400 *, .text-green-500 *,
+.bg-emerald-500\/20 * {
+  background-color: #ECFDF5 !important;
+  background: #ECFDF5 !important;
+  border-color: #A7F3D0 !important;
+  color: #047857 !important;
+}
+
+/* DESTRUCTIVE STATE / CRITICAL URGENCY: Elegant Soft Rose-Crimson */
+.text-red-400, .text-red-500, .text-rose-400, .text-rose-500,
+.bg-red-950\/30, .bg-red-500\/20, .bg-red-950, .bg-rose-950\/30, .bg-rose-950\/60, .bg-rose-500\/20,
+.text-red-400 *, .text-red-500 *, .text-rose-400 *, .text-rose-500 *,
+.bg-rose-500\/10 *, .bg-rose-950\/60 *, .bg-red-500\/20 * {
+  background-color: #FEF2F2 !important;
+  background: #FEF2F2 !important;
+  border-color: #FCA5A5 !important;
+  color: #B91C1C !important;
+}
+
+/* HIGH STATE / WARNING / URGENT: Elegant Soft Peach-Amber */
+.text-amber-400, .text-amber-500,
+.bg-amber-950\/50, .bg-amber-500\/20, .bg-amber-950, .bg-amber-950\/40,
+.text-amber-400 *, .text-amber-500 *,
+.bg-amber-500\/20 *, .bg-amber-950\/50 *, .bg-amber-950\/40 * {
+  background-color: #FFFBEB !important;
+  background: #FFFBEB !important;
+  border-color: #FDE68A !important;
+  color: #B45309 !important;
+}
+
+/* LOW/MEDIUM STATE / NORMAL INFO: Elegant Soft Sky Blue */
+.text-blue-400, .text-blue-500,
+.bg-blue-950\/50, .bg-blue-500\/20, .bg-blue-950, .bg-blue-950\/40,
+.text-blue-400 *, .text-blue-500 *,
+.bg-blue-500\/20 *, .bg-blue-950\/50 *, .bg-blue-950\/40 * {
+  background-color: #EFF6FF !important;
+  background: #EFF6FF !important;
+  border-color: #BFDBFE !important;
+  color: #1E40AF !important;
+}
+
+/* Warm cream highlight badge for landing page top marker */
+#nexus-badge, [id*="badge"] {
+  background-color: #FDF4C5 !important;
+  background: #FDF4C5 !important;
+  color: #7C2D12 !important;
+  border-color: #FCEAA1 !important;
+}
+#nexus-badge *, [id*="badge"] * {
+  color: #7C2D12 !important;
+}
+
+/* Ensure brand theme colors always map to the requested steel blue/periwinkle value */
+.text-luxury-gold, .text-\[\#9AA5FF\], .text-\[\#78A4CB\] {
+  color: #78A4CB !important;
+}
+.border-luxury-gold, .border-luxury-gold\/20, .border-luxury-gold\/30, .border-luxury-gold\/40, .border-luxury-gold\/50 {
+  border-color: #78A4CB !important;
+}
+
+/* 9. Progress Trackers, Icons, Dividers (Harmonized with Blue Matches) */
+circle.stroke-neutral-800 {
+  stroke: #F1F5F9 !important; /* Crisp light grey-blue track background */
+}
+circle[class*="stroke-[#"] {
+  stroke: #78A4CB !important; /* Steel Blue active meter */
+}
+
+/* Styling for linear bars */
+.bg-neutral-800, .bg-zinc-800, .bg-slate-800 {
+  background-color: #E2E8F0 !important; /* Harmonized track */
+}
+
+.border-white\/10, .border-white\/5, .border-white\/15, .border-white\/20, 
+.border-zinc-800, .border-neutral-800, .border-slate-800, .border-neutral-900\/50, 
+.border-zinc-700, .border-slate-700 {
+  border-color: #BCE3EB !important; /* Light Pale Ice Blue dividers */
+}
+
+/* 10. Background particles / Ambient effects opacity adjustment */
+canvas {
+  opacity: 0.15 !important;
+}
+
+/* ==========================================================================
+   CHATBOT SPECIFIC OVERRIDES (ALWAYS DEEP BLACK)
+   ========================================================================== */
+#companion-chatbot-panel {
+  background-color: #020202 !important;
+  background: #020202 !important;
+  color: #FFFFFF !important;
+  border-color: rgba(120, 164, 203, 0.45) !important;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.95), 0 0 50px rgba(120, 164, 203, 0.15) !important;
+}
+
+#companion-chatbot-panel h4,
+#companion-chatbot-panel h4 *,
+#companion-chatbot-panel h5,
+#companion-chatbot-panel h5 *,
+#companion-chatbot-panel p,
+#companion-chatbot-panel span,
+#companion-chatbot-panel div:not(.bg-gradient-to-tr),
+#companion-chatbot-panel button {
+  color: #FFFFFF !important;
+}
+
+/* User chat bubble */
+#companion-chatbot-panel .bg-gradient-to-tr {
+  background-image: linear-gradient(135deg, #78A4CB 0%, #BCE3EB 100%) !important;
+  background-color: #78A4CB !important;
+}
+
+#companion-chatbot-panel .bg-gradient-to-tr,
+#companion-chatbot-panel .bg-gradient-to-tr * {
+  color: #000000 !important;
+}
+
+/* Assistant chat bubble */
+#companion-chatbot-panel [class*="bg-white/"] {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+#companion-chatbot-panel [class*="bg-white/"] p,
+#companion-chatbot-panel [class*="bg-white/"] span,
+#companion-chatbot-panel [class*="bg-white/"] div {
+  color: #F1F5F9 !important;
+}
+
+/* Assistant input console */
+#companion-chatbot-panel input#assistant-chat-input {
+  background-color: #0c0c0e !important;
+  background: #0c0c0e !important;
+  color: #FFFFFF !important;
+  border-color: rgba(120, 164, 203, 0.35) !important;
+}
+
+#companion-chatbot-panel button#assistant-submit-btn {
+  background-color: #FFFFFF !important;
+  background: #FFFFFF !important;
+  color: #000000 !important;
+}
+
+#companion-chatbot-panel button#assistant-submit-btn * {
+  color: #000000 !important;
+}
+
+/* Interactive suggestion buttons */
+#companion-chatbot-panel button[type="button"] {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: #E2E8F0 !important;
+}
+
+#companion-chatbot-panel button[type="button"]:hover {
+  background-color: rgba(120, 164, 203, 0.25) !important;
+  background: rgba(120, 164, 203, 0.25) !important;
+  border-color: #78A4CB !important;
+  color: #FFFFFF !important;
+}
+
+/* Badge overlay */
+#companion-chatbot-badge {
+  background-color: #020202 !important;
+  background: #020202 !important;
+  color: #78A4CB !important;
+  border-color: rgba(120, 164, 203, 0.5) !important;
+}
+
+#companion-chatbot-badge * {
+  color: #78A4CB !important;
+}
+

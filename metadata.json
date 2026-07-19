@@ -1,0 +1,6 @@
+{
+  "name": "NEXUS AI — Easy Career Helper",
+  "description": "A friendly and simple AI career helper that helps you build your resume, practice mock interviews, map your skills, and find your dream job.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
